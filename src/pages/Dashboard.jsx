@@ -5,9 +5,6 @@ import { Column, Pie } from "@ant-design/plots";
 import { PropagateLoader } from "react-spinners";
 import { useSelector, useDispatch } from "react-redux";
 import { getOrders } from "../features/order/orderSlice";
-import { BiEdit } from "react-icons/bi";
-import { AiFillDelete } from "react-icons/ai";
-import { Link } from "react-router-dom";
 const Dashboard = () => {
   const dispatch = useDispatch();
   const { orders, isLoading } = useSelector((state) => state.order);

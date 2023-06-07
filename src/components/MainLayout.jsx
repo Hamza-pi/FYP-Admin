@@ -11,8 +11,7 @@ import {
 } from "react-icons/ai";
 import {removeToken, token} from "../utils/token"
 import {RiCoupon2Fill} from "react-icons/ri"
-import {} from "react-icons/bi"
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { BiCategoryAlt } from "react-icons/bi";
 import { GrProductHunt } from "react-icons/gr";
 import { Layout, Menu, theme } from "antd";
