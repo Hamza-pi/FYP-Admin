@@ -12,7 +12,7 @@ const EditBrand = () => {
 
   const dispatch = useDispatch();
   const {id} = useParams()
-  const {coupons,isLoading,message,isError,isSuccess} = useSelector(state=>state.coupon)
+  const {coupons,isLoading,message,isError} = useSelector(state=>state.coupon)
   const {name,expiry,discount} = coupons?.find((coupon)=>coupon._id===id)
 
 
@@ -37,13 +37,13 @@ const EditBrand = () => {
 
 
   useEffect(()=>{
-    if(isSuccess&&message){
+    if(message!==""){
       toast.success(message)
     }
     else if(isError&&message){
       toast.error(message)
     }
-  },[isError,isSuccess,message])
+  },[isError,message])
 
   const override = {
     display: "block",

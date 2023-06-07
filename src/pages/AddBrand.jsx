@@ -8,7 +8,7 @@ import {ToastContainer,toast} from "react-toastify"
 import * as Yup from "yup"
 const AddBrand = () => {
   const dispatch = useDispatch()
-  const {isError,isSuccess,message,isLoading}=useSelector(state=>state.brand)
+  const {isError,message,isLoading}=useSelector(state=>state.brand)
 
   const formik = useFormik({
     initialValues:{
@@ -28,13 +28,13 @@ const AddBrand = () => {
   })
 
   useEffect(()=>{
-    if(isSuccess&&message){
+    if(message!==""){
       toast.success(message)
     }
     else if(isError&&message){
       toast.error(message)
     }
-  },[isError,isSuccess,message])
+  },[isError,message])
 
   const override = {
     display: "block",

@@ -9,7 +9,7 @@ import { useFormik } from "formik";
 const AddPrCat = () => {
 
   const dispatch = useDispatch();
-  const {isError,isSuccess,message,isLoading} = useSelector(state=>state.category)
+  const {isError,message,isLoading} = useSelector(state=>state.category)
   
   const formik = useFormik({
     initialValues:{
@@ -28,7 +28,7 @@ const AddPrCat = () => {
   })
 
   useEffect(()=>{
-    if(isSuccess&&message){
+    if(message!==""){
       toast.success(message)
     }
     else if(isError&&message){

@@ -10,7 +10,7 @@ const AddColor = () => {
 
 
   const dispatch = useDispatch()
-  const {isError,isSuccess,message,isLoading}=useSelector(state=>state.color)
+  const {isError,message,isLoading}=useSelector(state=>state.color)
 
   const formik = useFormik({
     initialValues:{
@@ -29,13 +29,13 @@ const AddColor = () => {
   })
 
   useEffect(()=>{
-    if(isSuccess&&message){
+    if(message!==""){
       toast.success(message)
     }
     else if(isError&&message){
       toast.error(message)
     }
-  },[isError,isSuccess,message])
+  },[isError,message])
 
   const override = {
     display: "block",

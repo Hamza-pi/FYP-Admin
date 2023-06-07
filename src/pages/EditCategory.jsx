@@ -13,7 +13,7 @@ const EditCategory = () => {
 
   const dispatch = useDispatch();
   const {id} = useParams()
-  const {categories,isLoading,message,isError,isSuccess} = useSelector(state=>state.category)
+  const {categories,isLoading,message,isError} = useSelector(state=>state.category)
   const {title} = categories?.find((categ)=>categ._id===id)
 
   const formik = useFormik({
@@ -34,13 +34,13 @@ const EditCategory = () => {
 
 
   useEffect(()=>{
-    if(isSuccess&&message){
+    if(message!==""){
       toast.success(message)
     }
     else if(isError&&message){
       toast.error(message)
     }
-  },[isError,isSuccess,message])
+  },[isError,message])
 
   const override = {
     display: "block",

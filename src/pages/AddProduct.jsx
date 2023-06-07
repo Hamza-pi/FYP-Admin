@@ -14,7 +14,7 @@ import * as Yup from "yup";
 const AddProduct = () => {
   
   const dispatch = useDispatch()
-  const {message,isError,isSuccess,isLoading} = useSelector(state=>state.product)
+  const {message,isError,isLoading} = useSelector(state=>state.product)
   const {colors} = useSelector(state=>state.color);
   const {categories} = useSelector(state=>state.category);
   const {brands} = useSelector(state=>state.brand);
@@ -92,7 +92,7 @@ const AddProduct = () => {
   });
 
   useEffect(()=>{
-    if(isSuccess&&message){
+    if(message!==""){
       toast.success(message)
     }
     else if(isError&&message){
@@ -119,7 +119,7 @@ const AddProduct = () => {
         }
       }
     );
-  },[formik,isSuccess,isError,message,dispatch,colors.length,categories.length,brands.length])
+  },[formik,isError,message,dispatch,colors.length,categories.length,brands.length])
 
 
   const override = {

@@ -13,7 +13,7 @@ const EditBrand = () => {
 
   const dispatch = useDispatch();
   const {id} = useParams()
-  const {brands,isLoading,message,isError,isSuccess} = useSelector(state=>state.brand)
+  const {brands,isLoading,message,isError} = useSelector(state=>state.brand)
   const {title} = brands?.find((brand)=>brand._id===id)
 
   const formik = useFormik({
@@ -34,13 +34,13 @@ const EditBrand = () => {
 
 
   useEffect(()=>{
-    if(isSuccess&&message){
+    if(message!==""){
       toast.success(message)
     }
     else if(isError&&message){
       toast.error(message)
     }
-  },[isError,isSuccess,message])
+  },[isError,message])
 
   const override = {
     display: "block",

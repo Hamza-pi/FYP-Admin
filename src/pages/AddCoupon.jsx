@@ -9,16 +9,16 @@ import { addCoupon, resetMessage } from "../features/coupon/couponSlice";
 const AddCoupon = () => {
 
   const dispatch = useDispatch()
-  const {isError,isSuccess,message,isLoading}=useSelector(state=>state.coupon)
+  const {isError,message,isLoading}=useSelector(state=>state.coupon)
 
   useEffect(()=>{
-    if(isSuccess&&message){
+    if(message!==""){
       toast.success(message)
     }
     else if(isError&&message){
       toast.error(message)
     }
-  },[isError,isSuccess,message])
+  },[isError,message])
 
   const formik = useFormik({
     initialValues:{

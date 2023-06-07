@@ -17,7 +17,7 @@ const EditProduct = () => {
   const dispatch = useDispatch();
 
   const {id} = useParams()
-  const {products,isLoading,message,isError,isSuccess} = useSelector(state=>state.product)
+  const {products,isLoading,message,isError} = useSelector(state=>state.product)
   const {colors} = useSelector(state=>state.color);
   const {categories} = useSelector(state=>state.category);
   const {brands} = useSelector(state=>state.brand);
@@ -94,7 +94,7 @@ const EditProduct = () => {
   })
 
   useEffect(()=>{
-    if(isSuccess&&message){
+    if(message!==""){
       toast.success(message)
     }
     else if(isError&&message){
@@ -121,7 +121,7 @@ const EditProduct = () => {
         }
       }
     );
-  },[formik,isSuccess,isError,message,dispatch,colors.length,brands.length,categories.length])
+  },[formik,isError,message,dispatch,colors.length,brands.length,categories.length])
 
   const override = {
     display: "block",

@@ -13,7 +13,7 @@ const EditColor = () => {
 
   const dispatch = useDispatch();
   const {id} = useParams()
-  const {colors,isLoading,message,isError,isSuccess} = useSelector(state=>state.color)
+  const {colors,isLoading,message,isError} = useSelector(state=>state.color)
   const {value} = colors?.find((color)=>color._id===id)
 
   const formik = useFormik({
@@ -34,13 +34,13 @@ const EditColor = () => {
 
 
   useEffect(()=>{
-    if(isSuccess&&message){
+    if(message!==""){
       toast.success(message)
     }
     else if(isError&&message){
       toast.error(message)
     }
-  },[isError,isSuccess,message])
+  },[isError,message])
 
   const override = {
     display: "block",
