@@ -1,3 +1,3 @@
-const baseUrl = "https://digicom-server.up.railway.app/api/";
+const baseUrl = "https://digicom-server.vercel.app/api/";
 
 export { baseUrl };
